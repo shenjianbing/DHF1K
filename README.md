@@ -11,11 +11,16 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018
 
 ===========================================================================
 
-The code (ACLNet) and dataset can be downloaded from:
+The code (ACLNet) and dataset (DHF1K with raw gaze records, UCF-sports are new added!) can be downloaded from:
 
 Google disk：https://drive.google.com/open?id=1sW0tf9RQMO4RR7SyKhU8Kmbm4jwkFGpQ
 
 Baidu pan: https://pan.baidu.com/s/110NIlwRIiEOTyqRwYdDnVg
+
+The Hollywood-2 (74.6G) can be downloaded from:
+
+Google disk：https://drive.google.com/file/d/1vfRKJloNSIczYEOVjB4zMK8r0k4VJuWk/view?usp=sharing
+
 
 ===========================================================================
 
@@ -58,6 +63,24 @@ Please see our newest version in ArXiv.
 
 Note that, for Holly-wood2 dataset, we used the split videos 
 (each video only contains one shot), instead of the full videos.
+
+===========================================================================
+
+The raw data of gaze record has been uploaded.
+
+===========================================================================
+
+For DHF1K dataset, we use following functions to generate continous saliency map:
+
+[x,y]=find(fixations);
+
+densityMap= make_gauss_masks(y,x,[video_res_y,video_res_x]); 
+
+make_gauss_masks.m has been uploaded.
+
+For UCF and Hollywood, I directly use following functions:
+
+densityMap = imfilter(fixations,fspecial('gaussian',150,20),'replicate');
 
 ===========================================================================
 
@@ -108,6 +131,4 @@ Contact Information
 Email:
 
 	wenguanwang.ai@gmail.com
-	
-	shenjianbing@bit.edu.cn
 ------------------------------------------------------------------------------------------------
